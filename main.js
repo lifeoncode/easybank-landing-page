@@ -25,7 +25,7 @@ function init(e){
 
 
     // menu
-    const [open, close, menu] = [document.querySelector('#menu-btn'), document.querySelector('#close'), document.querySelector('#menu')];
+    const [open, close, menu] = [document.querySelector('.menu-btn'), document.querySelector('.close'), document.querySelector('.menu')];
 
     open.addEventListener('click', function(e){
         this.classList.add('hide');
@@ -43,7 +43,7 @@ function init(e){
     
     close.addEventListener('click', hide);
 
-    const links = document.querySelectorAll('#menu a');
+    const links = document.querySelectorAll('.menu a');
 
     links.forEach(link => {
         link.addEventListener('click', hide);

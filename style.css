@@ -22,7 +22,6 @@
     --white: hsl(0, 0%, 100%);
 }
 
-
 ul{
     list-style: none;
 }
@@ -67,7 +66,7 @@ img{
 }
 
 button,
-#showcase a{
+.showcase a{
     display: inline-block;
     padding: 0.8rem 2rem;
     border: 0;
@@ -80,11 +79,11 @@ button,
     transition: all 0.3s ease;
 }
 button:hover,
-#showcase a:hover{
+.showcase a:hover{
     transform: scale(1.1);
 }
 button:focus,
-#showcase a:focus{
+.showcase a:focus{
     outline: none;
 }
 
@@ -149,21 +148,25 @@ header nav li a:hover{
 
 
 /* showcase */
-#showcase{
+.showcase{
     position: relative;
-    height: 90vh;
     background-color: var(--light-gray);    
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding: 6rem 0;
+}
+
+.showcase_inner{
+    padding: 6rem 0;
 }
 
 .showcase_inner > div{
     padding: 0 2rem;
 }
 
-#showcase .overlay{
+.showcase .overlay{
     position: absolute;
     width: 70%;
     right: -250px;
@@ -191,8 +194,8 @@ header nav li a:hover{
 
 
 
-#about,
-#blog,
+.about,
+.blog,
 footer{
     padding: 4rem 0;
 }
@@ -204,7 +207,7 @@ footer{
 
 
 /* about */
-#about{
+.about{
     background-color: var(--light-gray-blue);
 }
 
@@ -225,11 +228,11 @@ footer{
 
 
 /* blog */
-#blog{
+.blog{
     background-color: var(--light-gray);
 }
 
-#blog h2{
+.blog h2{
     width: 80%;
     margin: auto;
     margin-bottom: 2rem;
@@ -283,7 +286,7 @@ footer{
 }
 
 .blog_inner span{
-    display: inline-block;
+    display: block;
     font-size: 0.6rem;
     color: var(--gray-blue);
     margin: 1rem 0;
@@ -307,6 +310,7 @@ footer{
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0 2rem;
 }
+
 /* -------------------------- */
 
 
@@ -390,11 +394,30 @@ footer li:hover{
 
 
 
-@media screen and (max-width: 1100px){
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px){
 
     
     .mock{
         right: 0;
+    }
+
+
+
+    header .btn{
+        text-align: left;
     }
 
     .container{
@@ -406,7 +429,7 @@ footer li:hover{
         text-align: left;
     }
 
-    #showcase{
+    .showcase{
         height: 40vh;
     }
 
@@ -426,9 +449,9 @@ footer li:hover{
 
 
 
-#menu-btn,
-#close,
-#menu{
+.menu-btn,
+.close,
+.menu{
     display: none;
 }
 
@@ -471,7 +494,11 @@ footer li:hover{
 
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1100px){
+
+    body{
+        overflow: scroll;
+    }
 
     header .container{
         display: grid;
@@ -482,7 +509,7 @@ footer li:hover{
         width: 60%;
     }
 
-    #menu-btn{
+    .menu-btn{
         position: absolute;
         top: 1rem;
         right: 10%;
@@ -490,7 +517,7 @@ footer li:hover{
         width: 8%;
     }
 
-    #close{
+    .close{
         position: absolute;
         top: 1rem;
         right: 10%;
@@ -498,7 +525,7 @@ footer li:hover{
         width: 4%;
     }
 
-    #menu{
+    .menu{
         display: block;
         position: fixed;
         top: 100px;
@@ -512,15 +539,15 @@ footer li:hover{
         box-shadow: 0 6px 100px var(--dark-blue);
         transform: scale(0);
     }
-    #menu li{
+    .menu li{
         padding: 1rem 0;
     }
-    #menu li a{
+    .menu li a{
         font-size: 0.9rem;
         color: var(--dark-blue);
         transition: all 0.3s ease;
     }
-    #menu li a:hover{
+    .menu li a:hover{
         color: var(--lime-green);
     }
     
@@ -543,16 +570,17 @@ footer li:hover{
     }
 
 
-    #showcase{
-        height: 100vh;
+    .showcase{
         text-align: center;
+        padding: 30rem 0;
     }
 
     .showcase_inner{
         display: block;
+        margin-top: 25rem;
     }
 
-    #showcase .overlay{
+    .showcase .overlay{
         width: 100%;
         right: 0;
         top: -300px;
@@ -565,8 +593,8 @@ footer li:hover{
     }
     
 
-    #about,
-    #blog,
+    .about,
+    .blog,
     footer{
         padding: 4rem 0;
     }
@@ -620,7 +648,13 @@ footer li:hover{
 
 
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 690px){
+
+
+    .container{
+        width: 80%;
+    }
+    
 
 
     header .container{
@@ -638,7 +672,7 @@ footer li:hover{
     }
 
 
-    #showcase .overlay{
+    .showcase .overlay{
         width: 100%;
         right: 0;
         top: -100px;
@@ -648,6 +682,10 @@ footer li:hover{
         top: -50px;
         width: 60%;
         right: 20%;
+    }
+
+    .showcase_inner{
+        margin-top: 12rem;
     }
     
     .showcase_inner h1{
@@ -666,8 +704,8 @@ footer li:hover{
         margin-top: 4rem;
     }
 
-    #about,
-    #blog,
+    .about,
+    .blog,
     footer{
         padding: 4rem 0;
     }
@@ -686,4 +724,14 @@ footer li:hover{
     
     
     
+}
+
+
+
+
+
+@media screen and (max-width: 430px){
+    .container{
+        width: 90%;
+    }
 }
