@@ -406,12 +406,12 @@ footer li:hover{
 
 
 
-
 @media screen and (max-width: 1200px){
 
     
     .mock{
         right: 0;
+        width: 55%;
     }
 
 
@@ -494,7 +494,7 @@ footer li:hover{
 
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1000px){
 
     body{
         overflow: scroll;
@@ -723,6 +723,32 @@ footer li:hover{
     
     
     
+    
+}
+
+
+
+
+@media screen and (max-width: 500px){
+    
+    .showcase .overlay{
+        width: 100%;
+        right: 0;
+        top: -50px;
+    }
+
+    .mock{
+        right: 15%;
+        width: 70%;
+    }
+
+    .showcase{
+        padding: 27rem 0;
+    }
+    
+    .showcase_inner{
+        margin-top: 0;
+    }
     
 }
 
