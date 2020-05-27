@@ -513,6 +513,7 @@ footer li:hover{
         position: absolute;
         top: 1rem;
         right: 10%;
+cursor: pointer;
         display: block;
         width: 8%;
     }
@@ -522,6 +523,7 @@ footer li:hover{
         top: 1rem;
         right: 10%;
         display: block;
+cursor: pointer;
         width: 4%;
     }
 
