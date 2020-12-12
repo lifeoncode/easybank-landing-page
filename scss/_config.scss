@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth !important;
+  margin: 0;
+  padding: 0;
+}
+
+$dark-blue: hsl(233, 26%, 24%);
+$lime-green: hsl(136, 65%, 51%);
+$bright-cyan: hsl(192, 70%, 51%);
+$gradient: linear-gradient(45deg, $lime-green, $bright-cyan);
+$gray-blue: hsl(233, 8%, 62%);
+$light-gray-blue: hsl(220, 16%, 96%);
+$light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+h1,
+h2,
+h3,
+h4 {
+  color: $dark-blue;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@mixin flexDisplay($dir, $align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $dir;
+}
+
+@mixin gridDisplay($col, $gap) {
+  display: grid;
+  grid-template-columns: $col;
+  gap: $gap;
+}
+
+@mixin transition {
+  transition: all 0.3s ease;
+}

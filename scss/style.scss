@@ -1,0 +1,536 @@
+@import "./config";
+
+body {
+  position: relative;
+  font-family: "Public Sans", sans-serif;
+  background-color: $white;
+  overflow-x: hidden !important;
+}
+
+section {
+  padding: 120px 0;
+}
+
+.btn {
+  display: inline-block;
+  background: $gradient;
+  padding: 14px 32px;
+  color: $white;
+  font-size: 14px;
+  border-radius: 32px;
+  @include transition;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+header {
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  padding: 16px 0;
+
+  .container {
+    @include gridDisplay(1fr 2fr 1fr, 32px);
+
+    .logo {
+      padding-top: 10px;
+
+      img {
+        width: 60%;
+        cursor: pointer;
+      }
+    }
+
+    nav {
+      @include flexDisplay(row, center, center);
+      a {
+        margin: 0 16px;
+        font-size: 14px;
+        color: $gray-blue;
+        @include transition;
+
+        &:hover {
+          color: $lime-green;
+        }
+      }
+    }
+
+    .invite {
+      text-align: right;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: inherit;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $lime-green;
+  border-radius: 32px;
+}
+
+.mock {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  right: -100px;
+  z-index: 1;
+}
+
+section.showcase {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    width: 70%;
+    top: -50px;
+    right: -250px;
+  }
+
+  .container {
+    .text {
+      margin-top: 100px;
+      width: 50%;
+
+      h1 {
+        font-size: 42px;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 32px 0 64px 0;
+      }
+    }
+  }
+}
+
+section.about {
+  background-color: $light-gray-blue;
+
+  .container {
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    .about_inner {
+      margin-top: 64px;
+      @include gridDisplay(repeat(4, 1fr), 32px);
+
+      .card {
+        img {
+          width: 25%;
+        }
+
+        h3 {
+          margin: 32px 0 16px 0;
+        }
+      }
+    }
+  }
+}
+
+section.blog {
+  .container {
+    h2 {
+      margin-bottom: 32px;
+    }
+
+    .blog_inner {
+      @include gridDisplay(repeat(4, 1fr), 32px);
+
+      .article {
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        @include transition;
+
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 2px 2px 6px $gray-blue;
+        }
+
+        &.hovered {
+          h4 {
+            color: $lime-green;
+          }
+        }
+
+        &:nth-of-type(1) {
+          .thumbnail {
+            background: url(../images/image-currency.jpg) no-repeat 0 0 / cover;
+          }
+        }
+        &:nth-of-type(2) {
+          .thumbnail {
+            background: url(../images/image-restaurant.jpg) no-repeat 0 0 /
+              cover;
+          }
+        }
+        &:nth-of-type(3) {
+          .thumbnail {
+            background: url(../images/image-plane.jpg) no-repeat 0 0 / cover;
+          }
+        }
+        &:nth-of-type(4) {
+          .thumbnail {
+            background: url(../images/image-confetti.jpg) no-repeat 0 0 / cover;
+          }
+        }
+
+        .thumbnail {
+          height: 150px;
+        }
+
+        .text {
+          padding: 12px;
+
+          .title {
+            font-size: 10px;
+            opacity: 0.5;
+          }
+
+          h4 {
+            margin: 10px 0 16px 0;
+            @include transition;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $dark-blue;
+  padding: 64px 0;
+
+  .container {
+    @include gridDisplay(repeat(4, 1fr), 64px);
+
+    .company {
+      img {
+        width: 60%;
+        margin-bottom: 22px;
+        cursor: pointer;
+      }
+
+      div {
+        @include flexDisplay(row, center, space-between);
+
+        img {
+          width: 10%;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .links {
+      a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: $white;
+        @include transition;
+
+        &:hover {
+          color: $lime-green;
+        }
+      }
+    }
+
+    .invite {
+      p {
+        color: $white;
+        margin-top: 10px;
+        opacity: 0.5;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+img.hamburger {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  width: 5%;
+  top: 26px;
+  right: 32px;
+  cursor: pointer;
+  @include transition;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 10%;
+  z-index: 5;
+  width: 80%;
+  text-align: center;
+  padding: 64px 0;
+  background-color: $white;
+  box-shadow: 0 32px 64px $dark-blue;
+  border-radius: 10px;
+  transform: scale(0);
+  @include flexDisplay(column, center, center);
+  @include transition;
+
+  &.open {
+    transform: scale(1);
+  }
+
+  nav {
+    a {
+      display: block;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: $dark-blue;
+      @include transition;
+
+      &:hover {
+        color: $lime-green;
+      }
+    }
+
+    a:last-child {
+      margin: 0;
+    }
+  }
+}
+
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+// ----------------
+// --------------
+// -------------------------
+
+@media screen and (max-width: 1100px) {
+  section {
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  header {
+    .container {
+      @include gridDisplay(1fr 2fr, 32px);
+
+      .logo {
+        padding-top: 10px;
+
+        img {
+          width: 60%;
+          cursor: pointer;
+        }
+      }
+
+      nav {
+        @include flexDisplay(row, center, center);
+      }
+
+      .invite {
+        display: none;
+      }
+    }
+  }
+
+  .mock {
+    top: 0;
+    width: 50%;
+    right: 25%;
+    transform: translateY(-25%);
+  }
+
+  section.showcase {
+    .overlay {
+      width: 100%;
+      top: 0;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .container {
+      .text {
+        width: 60%;
+        margin: 350px auto 0 auto;
+
+        h1 {
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 15px;
+          margin: 16px 0 32px 0;
+        }
+      }
+    }
+  }
+
+  section.about {
+    .container {
+      .about_inner {
+        margin-top: 64px;
+        @include gridDisplay(repeat(2, 1fr), 32px);
+
+        .card {
+          img {
+            width: 25%;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  section.blog {
+    .container {
+      .blog_inner {
+        @include gridDisplay(repeat(2, 1fr), 32px);
+
+        .article {
+          .thumbnail {
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+
+    .container {
+      @include gridDisplay(1fr, 64px);
+
+      .company {
+        img {
+          width: 60%;
+          margin: 0 auto 32px auto;
+        }
+
+        div {
+          @include flexDisplay(row, center, space-between);
+
+          img {
+            width: 10%;
+          }
+        }
+      }
+
+      .links {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    width: 70%;
+  }
+
+  img.hamburger,
+  .menu {
+    display: block;
+  }
+
+  header {
+    .container {
+      display: block;
+      @include gridDisplay(none, 32px);
+
+      .logo {
+        padding: 0;
+
+        img {
+          width: 60%;
+        }
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  }
+
+  section.showcase {
+    .container {
+      .text {
+        width: 100%;
+      }
+    }
+  }
+
+  section.about {
+    .container {
+      .about_inner {
+        margin-top: 64px;
+        @include gridDisplay(repeat(1, 1fr), 32px);
+      }
+    }
+  }
+
+  section.blog {
+    .container {
+      .blog_inner {
+        @include gridDisplay(repeat(1, 1fr), 32px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 80%;
+  }
+
+  .mock {
+    top: 0;
+    width: 60%;
+    right: 15%;
+    transform: translateY(0);
+  }
+
+  section.showcase {
+    .overlay {
+      transform: translateY(-20%);
+    }
+
+    .container {
+      .text {
+        margin: 200px auto 0 auto;
+      }
+    }
+  }
+}
